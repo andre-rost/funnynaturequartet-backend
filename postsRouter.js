@@ -1,6 +1,8 @@
+
 const express = require("express");
 const postsRouter = express.Router();
-const posts = require("./postsRouter.js");
+
+const posts = require("./posts.js");
 
 postsRouter.get("/:id", (req, res, next) => {
   const post = posts[req.params.id];
@@ -11,4 +13,4 @@ postsRouter.get("/:id", (req, res, next) => {
   }
 });
 
-module.exports = postsRouter;
+module.exports = posts;
