@@ -2,7 +2,18 @@
 const express = require("express");
 const postsRouter = express.Router();
 
-const posts = require("./posts.js");
+let posts = require("./posts.js");
+console.log(posts[0]);
+
+postsRouter.get("/", (req, res, next) => {
+ 
+  if (posts) {
+    res.send(posts);
+  } else {
+    res.status(404).send();
+  }
+});
+
 
 postsRouter.get("/:id", (req, res, next) => {
   const post = posts[req.params.id];
@@ -13,4 +24,4 @@ postsRouter.get("/:id", (req, res, next) => {
   }
 });
 
-module.exports = posts;
+module.exports = postsRouter;

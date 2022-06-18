@@ -1,5 +1,5 @@
 const express = require("express");
-const postsRouter = express.Router();
+const authorsRouter = express.Router();
 
 const authors = require("./authors.js");
 
