@@ -1,14 +1,14 @@
 const express = require("express");
 const postsRouter = express.Router();
-const posts = require("./posts.js");
+const authors = require("./authorsRouter.js");
 
 postsRouter.get("/:id", (req, res, next) => {
-  const post = posts[req.params.id];
-  if (post) {
-    res.send(post);
+  const author = authors[req.params.id];
+  if (author) {
+    res.send(author);
   } else {
     res.status(404).send();
   }
 });
 
-module.exports = postsRouter;
+module.exports = authorsRouter;
