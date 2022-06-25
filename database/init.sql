@@ -1,11 +1,11 @@
 CREATE TABLE posts(
  id SERIAL PRIMARY KEY,
  title VARCHAR (100) NOT NULL,
- image VARCHAR (100)  NOT NULL, 
+ image_posts VARCHAR (100)  NOT NULL, 
  descriptionShort TEXT  NOT NULL,
  descriptionLong TEXT  NOT NULL, 
  date DATE  NOT NULL,  
- author_id INT  NOT NULL, 
+ author INT  NOT NULL, 
  rating FLOAT NOT NULL,
  video VARCHAR (500)  NOT NULL 
  );
@@ -13,14 +13,14 @@ CREATE TABLE posts(
 CREATE TABLE authors(
  id SERIAL PRIMARY KEY,
  name VARCHAR (50) NOT NULL,
- image VARCHAR (100)  NOT NULL,
+ image_authors VARCHAR (100)  NOT NULL,
  email VARCHAR (100)  NOT NULL,
  description TEXT NOT NULL);
 
 /* Constraint relating posts and authors, the 2 tables are connected */
 
  ALTER TABLE posts 
- ADD FOREIGN KEY (author_id)
+ ADD FOREIGN KEY (author)
  REFERENCES authors (id);
 
 
@@ -30,13 +30,13 @@ CREATE TABLE authors(
 
  /* Injecting some authors and posts */
 
- INSERT INTO authors (name, image, email, description) VALUES
+ INSERT INTO authors (name, image_authors, email, description) VALUES
 ('Mike the lizzards-lover ','mike.jpg','mike@gmail.com', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.'),
 
 ('Barbara','barbara.jpg','barbara@gmail.com', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.');
 
 
-INSERT INTO posts (title, image, descriptionShort, descriptionLong, date, author_id, rating, video) VALUES
+INSERT INTO posts (title, image_posts, descriptionShort, descriptionLong, date, author, rating, video) VALUES
 ('Patagonian Mara',
 'pataganonianMara.jpg',
 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',

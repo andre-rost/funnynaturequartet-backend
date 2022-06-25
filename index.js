@@ -1,51 +1,33 @@
 require("dotenv").config();
 const express = require("express");
-const { Pool } = require("pg");
-const app = express();
 
-const posts = require("./posts.js");
+const pg=require('pg');
+const app = express();
+const client = require("./database/client");
+
+
+
 app.use(express.json());
 
 
-const pool = new Pool();
+
 
 const PORT = process.env.PGPORT || 3000;
 
 // GET ALL POSTS
 
 app.get("/api/posts", (req, res) => {
-  pool
+  client
     .query("SELECT * FROM posts;")
     .then((data) => res.json(data.rows))
     .catch((error) => res.sendStatus(500));
 });
 
-// GET ONE POST
-
-app.get("/api/posts/:id", (req, res) => {
-
-  const { id } = req.params;
-
-    pool
-      .query("SELECT * FROM posts WHERE id = $1", [id])
-      .then((data) => res.json(data.rows))
-      .catch((error) => res.status(500));
-
-  const getOnePost = {
-    text: "SELECT * FROM posts WHERE id = $1",
-    values: [id],
-  };
-
-  pool
-    .query(getOnePost)
-    .then((data) => res.json(data.rows))
-    .catch((error) => res.status(500));
-});
 
 // GET ALL AUTHORS
 
 app.get("/api/authors", (req, res) => {
-  pool
+  client
     .query("SELECT * FROM authors;")
     .then((data) => res.json(data.rows))
     .catch((error) => res.sendStatus(500));
@@ -53,16 +35,15 @@ app.get("/api/authors", (req, res) => {
 
 // GET ONE POST with its AUTHOR ATTACHED
 
-app.get("/api/posts-authors/:id", (req, res) => {
+app.get("/api/posts/:id", (req, res) => {
   const { id } = req.params;
 
-  const getOnePostandAuthor = { text: "SELECT * FROM posts JOIN authors ON posts.author_id = authors.id_authors WHERE posts.id_posts = $1" , values: [id]};
+  const getOnePostandAuthor = { text: "SELECT p.id AS post_num, p.title, p.image_posts, p.descriptionShort, p.descriptionLong, p.date, p.rating, p.video, a.name AS author, a.image_authors, a.email, a.description FROM posts p JOIN authors a ON p.author = a.id WHERE p.id = $1" , values: [id]};
 
- pool.query(getOnePostandAuthor).then((data) => res.json(data.rows)).catch((error) =>
+ client.query(getOnePostandAuthor).then((data) => res.json(data.rows)).catch((error) =>
  res.sendStatus(500));
+ 
 });
-
-
 
 
 // GET ONE AUTHOR
@@ -71,20 +52,16 @@ app.get("/api/authors/:id", (req, res) => {
 
   const { id } = req.params;
 
- 
-
   const getOneAuthor = {
     text: "SELECT * FROM authors WHERE id = $1",
     values: [id],
   };
 
-  pool
+  client
     .query(getOneAuthor)
     .then((data) => res.json(data.rows))
     .catch((error) => res.status(500));
 });
-
-
 
 
 const authorsRouter=require('./authorsRouter.js');
