@@ -9,7 +9,7 @@ app.use(express.json());
 
 const pool = new Pool();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PGPORT || 3000;
 
 // GET ALL POSTS
 
@@ -28,6 +28,19 @@ app.get("/api/authors", (req, res) => {
     .then((data) => res.json(data.rows))
     .catch((error) => res.sendStatus(500));
 });
+
+// GET ONE POST with its AUTHOR ATTACHED
+
+app.get("/api/posts-authors/:id", (req, res) => {
+  const { id } = req.params;
+
+  const getOnePostandAuthor = { text: "SELECT * FROM posts JOIN authors ON posts.author_id = authors.id_authors WHERE posts.id_posts = $1" , values: [id]};
+
+ pool.query(getOnePostandAuthor).then((data) => res.json(data.rows)).catch((error) =>
+ res.sendStatus(500));
+});
+
+
 
 
 const authorsRouter=require('./authorsRouter.js');
