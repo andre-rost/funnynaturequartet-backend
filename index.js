@@ -1,12 +1,32 @@
+require("dotenv").config();
 const express = require("express");
+const { Pool } = require("pg");
 const app = express();
-const port = 3000;
 const posts = require("./posts.js");
+app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+const pool = new Pool();
+
+const PORT = process.env.PORT || 3000;
+
+// GET ALL POSTS
+
+app.get("/api/posts", (req, res) => {
+  pool
+    .query("SELECT * FROM posts;")
+    .then((data) => res.json(data.rows))
+    .catch((error) => res.sendStatus(500));
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+// GET ALL AUTHORS
+
+app.get("/api/authors", (req, res) => {
+  pool
+    .query("SELECT * FROM authors;")
+    .then((data) => res.json(data.rows))
+    .catch((error) => res.sendStatus(500));
+});
+
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
 });
