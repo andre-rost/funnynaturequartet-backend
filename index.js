@@ -71,10 +71,7 @@ app.get("/api/authors/:id", (req, res) => {
 
   const { id } = req.params;
 
-    pool
-      .query("SELECT * FROM authors WHERE id = $1", [id])
-      .then((data) => res.json(data.rows))
-      .catch((error) => res.status(500));
+ 
 
   const getOneAuthor = {
     text: "SELECT * FROM authors WHERE id = $1",
@@ -87,7 +84,7 @@ app.get("/api/authors/:id", (req, res) => {
     .catch((error) => res.status(500));
 });
 
-});
+
 
 
 const authorsRouter=require('./authorsRouter.js');
