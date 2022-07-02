@@ -18,9 +18,41 @@ const PORT = process.env.PGPORT || 3000;
 
 // GET ALL POSTS
 
+app.get("/api/posts/all", (req, res) => {
+
+   /* const page = parseInt(req.query.page) || 1;
+      const offset = (6 * page) - 6; */
+
+  const getAll = { 
+/*      text:"Select * FROM posts ORDER BY id limit 6 offset $1;"
+    , values: [offset]  */
+        text: "SELECT p.id AS post_num, p.title, p.image_posts, p.descriptionShort, p.descriptionLong, p.date, p.rating, p.video, a.name AS author, a.image_authors, a.email, a.description FROM posts p JOIN authors a ON p.author = a.id;"
+  };
+
+  client  
+   .query( getAll )
+    .then((data) => res.json(data.rows))
+    .catch((error) => res.sendStatus(500));
+});
+
+// GET ALL POSTS
+
 app.get("/api/posts", (req, res) => {
+  console.log(req.query);
+
+  const page = parseInt(req.query.page) || 1;
+  const offset = (6 * page) - 6;
+  console.log(offset);
+  const getAllPost = { 
+     text:"Select * FROM posts ORDER BY id limit 6 offset $1;"
+    , values: [offset] 
+      /*  text: "SELECT * FROM posts;" */
+  };
+
+
   client
-    .query("SELECT * FROM posts;")
+  
+   .query( getAllPost )
     .then((data) => res.json(data.rows))
     .catch((error) => res.sendStatus(500));
 });

@@ -93,4 +93,59 @@ The names given to this lizard reflect its appearance: the two large horned scal
 3,
 4.5,
 'https://www.youtube.com/embed/9CQ_ZJtqgxw'
-);
+),
+('Tawny Frogmouth',
+'TawnyFrogmouth.jpg',
+'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. ',
+'The Tawny Frogmouth is an enigmatic bird of the night, difficult to find in daytime, typically well camouflaged amongst the branches of a tree, imitating a broken tree branch or loose piece of bark. They hunt at night, preferring to eat nocturnal insects, worms, snails, and slugs.The Tawny Frogmouth resembles an owl but isnt one. Unlike an owl, it has no talons, and its feet are considered weak. Its distinctive flattened facial structure classifies it as a frogmouth.
+They are found throughout Australia, including Tasmania.Watch here -  Tawny Frogmouth in nature',
+'2022-05-19',
+3,
+4.2,
+'https://www.youtube.com/embed/5BFM0pKjUbI'
+),
+('Blobfish',
+'Blobfish.jpg',
+'the blobfish is not a great swimmer: it is not very fast and therefore prefers prey that are immobile or slower than it. It is an opportunistic predator, that is to say, it eats whatever it happens to catch. They eat primarily pennatules, sea snails, ',
+'Blobfish are typically shorter than 30 cm (12 in). They live at depths between 600 and 1,200 m (2,000 and 3,900 ft), where the pressure is 60 to 120 times greater than that at sea level, which would likely make gas bladders inefficient for maintaining buoyancy.[2] Instead, the flesh of the blobfish is primarily a gelatinous mass with a density slightly less than that of water; this allows the fish to float above the sea floor without expending energy on swimming. The blobfish has a relative lack of muscle, but this is not a disadvantage, as its main food source is edible matter that floats in front of it, such as deep-ocean crustaceans.[3]
+Blobfish are often caught as bycatch in bottom trawling nets.
+The popular impression of the blobfish as bulbous and gelatinous is partially an artifact of the decompression damage done to specimens when they are brought to the surface from the extreme depths in which they live.[4] In their natural environment, blobfish appear more typical for their superclass Osteichthyes (bony fish).
+',
+'2021-12-05',
+1,
+3.7,
+'https://www.youtube.com/embed/f_hNzjFCQFg'
+),
+('Red-Lipped Batfish',
+'Red-LippedBatfish.jpg',
+'is a poor swimmer, but modified fins act as makeshift legs, helping it to ‘walk’ along the sand. Well, it’s more of a froggy waddle, but when a little more speed is required, the batfish can push off with the ‘pelvic’ fins beneath its body…',
+'The red-lipped batfish flaunts its outrageous scarlet pout with all the charisma of a 1980s goth frontman. No one knows exactly why the batfish sports its signature look, but it may help it to attract mates, or to recognise others of the same species at spawning (reproduction) sites.
+The red-lipped batfish lives at depths of up to 75 metres in the waters surrounding the Galápagos Islands, where it is adapted to life as a bottom dweller, living and feeding on the seafloor. It is a poor swimmer, but modified fins act as makeshift legs, helping it to ‘walk’ along the sand. Well, it’s more of a froggy waddle, but when a little more speed is required, the batfish can push off with the ‘pelvic’ fins beneath its body and use its muscular tail to propel itself through the water.
+The fish also sports a fleshy appendage on the top of its head called an illicium, which contains a chemical-emitting lure that’s thought to help it attract the small fish and invertebrates on which it feeds. This fish is enigmatic, it’s eccentric, and with no known predators, we should be able to enjoy its Instagram-worthy pout for some time to come
+The red-lipped batfish (Ogcocephalus Darwin), also known as the Galapagos batfish, actually has red lips, as its name suggests, and legitimately looks like a person. Scientists believe that the lips enhance its recognition during spawning. It can be found around the Galapagos Islands, typically doesn’t grow longer than a foot, and feeds on other small fish and crustaceans. The way it’s built allows it to sit and even walk, like a human, and that, along with its indifferent facial expression, makes for a pretty hilarious image. Check out the video at the end of the article to see it in action...',
+'2021-05-19',
+2,
+4.2,
+'https://www.youtube.com/embed/JuMGmS32YvY'
+),
+('Shoebill',
+'Shoebill.jpg',
+'Sound terrifying? Yeah, it is. But it’s also impossible not to be impressed by these giants. Shoebills have been a beloved species for a long time. They appear in the artwork of the ancient Egyptians. ',
+'Of all the possible names, how on earth is it called the Shoebill? “Monsterface” would be better. Or “Death Pelican.” Or “Literally the Most Frightening Bird On Earth.”
+Though I don’t think I’d go anywhere near one, humans don’t have to worry. Shoebills, which live in the swamps of eastern tropical Africa, are after smaller prey. But only slightly smaller. They eat big fish like lungfish, eels, and catfish, and also crazy stuff like Nile monitor lizards, snakes, and baby crocodiles. This bird eats crocodiles!
+And they hunt like total bosses of the swamp. The Shoebill will stand there, motionless as a statue, and wait for some poor lungfish or baby crocodile to swim by. Then the bird will pounce forward, all five feet of it, with its massive bill wide open, engulfing its target along with water, mud, vegetation, and probably any other hapless fish minding their own business. Clamping down on its prey, the bird will start to swing its massive head back and forth, tipping out whatever stuff it doesn’t want to eat. When there’s nothing but lungfish or crocodile left, the Shoebill will give it a quick decapitation with the sharp edges of the bill (because of course it does) and swallow away.
+Watch here - Scary ShoeBill',
+'2021-12-15',
+4,
+4.6,
+'https://www.youtube.com/embed/noF-CLNSUZU'
+),
+('Japanese Spider Crab',
+'JapaneseSpiderCrab.jpg',
+'mostly found off the southern coasts of the Japanese island of Honshū, from Tokyo Bay to Kagoshima Prefecture. Outlying populations have been found in Iwate Prefecture and off Su-ao in Taiwan.[3] Adults are found at depths between 50 and 600 m',
+'The Japanesespidercrabhasthegreatest leg span ofanyarthropod, reachingupto 3.7 m (12.1 ft) fromclawtoclaw.[6] The bodymaygrowto 40 cm (16 in) in carapace width and thewholecrabcanweighupto 19 kg (42 lb)[7]—second in massonlytothe American lobster among all livingarthropodspecies. The maleshavethelonger chelipeds;[4] femaleshavemuchshorterchelipeds, whichareshorterthanthefollowing pair oflegs.[3] Apart fromitsoutstandingsize, theJapanesespidercrabdiffersfromothercrabs in a numberofways. The first pleopods ofmalesareunusuallytwisted, and the larvae appear primitive.[1] The crabis orange withwhitespotsalongthelegs.[8] Itisreportedtohave a gentledispositiondespiteitsferociousappearance.[8] The Japanesenameforthisspeciesis taka-ashi-gani, (Japanese: たかあしがに), literallytranslatingto “talllegscrab.” It also has a uniquemoltingbehaviorthatoccursforabout 100 minutes, in whichthecrab loses itsmobility and startsmoltingitscarapacerear and endswithmoltingitswalkinglegs.[9] Itsarmoredexoskeletonhelpsprotectitfrom larger predators such asoctopuses, but also usescamouflage. The crab''sbumpycarapaceblendsintotherockyoceanfloor. Tofurtherthedeception, a spidercrabadornsitsshellwithsponges and otheranimals.[10] The way in which a spidercrabsisableto pick up and coveritselfwith such organismsisbyfollowing a specificroutinebehavior. Upon pickinguptheobjectwiththecrab''sslenderchelipeds, thechelaeareusedtotwist and tear off theorganism, such as a wormtubeorsponge, fromthesubstrate on whichitcurrentlyresides.[11] Unlikeotherspeciesofcrab, such astheChileancrab Acanthonyxpetiveri, theJapanesespidercrabdoes not specificallylookformatchingcolorstoblendintoitsenvironment; itsimplycamouflages in a waythatdisguisesitsentirestructure.This ismostlikelybecauseJapanesespidercrabsarenocturnallyactive, so insteadoftryingtodisguisethemselveswhencatchingprey, theyareactually just tryingtoavoidpredators at night.Oncethe material ispickedup, itisbroughttothecrab''smouthpartstospecificallyorient and shapeitbeforeitisattachedtotheexoskeleton. Then, throughmechanicaladhesion and secretions, thematerialsattachtothecrab, and areabletoregenerate, and colonize on thecrab.',
+'2021-05-12',
+3,
+3.8,
+'https://www.youtube.com/embed/czloebyuINI')
+;
