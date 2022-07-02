@@ -6,15 +6,17 @@ const app = express();
 const client = require("./database/client");
 
 
-
+app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
-app.use('/images', express.static('images'));
-app.use(cors());
+// app.use('/images', express.static('images'));
+
+
 
 
 
 const PORT = process.env.PORT || 3001;
+
 
 // GET ALL POSTS 1
 
