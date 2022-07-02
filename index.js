@@ -8,6 +8,8 @@ const client = require("./database/client");
 
 
 app.use(express.json());
+app.use(express.static("public"));
+app.use('/images', express.static('images'));
 app.use(cors());
 
 
