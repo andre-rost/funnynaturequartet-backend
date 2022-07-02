@@ -14,9 +14,11 @@ app.use(express.static("public"));
 
 
 
-const PORT = process.env.PORT || 3000;
 
-// GET ALL POSTS
+const PORT = process.env.PORT || 3001;
+
+
+// GET ALL POSTS 1
 
 app.get("/api/posts/all", (req, res) => {
 
@@ -35,7 +37,7 @@ app.get("/api/posts/all", (req, res) => {
     .catch((error) => res.sendStatus(500));
 });
 
-// GET ALL POSTS
+// GET ALL POSTS 2
 
 app.get("/api/posts", (req, res) => {
   console.log(req.query);
@@ -80,7 +82,7 @@ app.get("/api/posts/:id", (req, res) => {
 });
 
 
-// GET ONE AUTHOR
+/* // GET ONE AUTHOR
 
 app.get("/api/authors/:id", (req, res) => {
 
@@ -95,7 +97,20 @@ app.get("/api/authors/:id", (req, res) => {
     .query(getOneAuthor)
     .then((data) => res.json(data.rows))
     .catch((error) => res.status(500));
+}); */
+
+// GET ALL POST related to its AUTHOR
+
+app.get("/api/authors/:id", (req, res) => {
+  const { id } = req.params;
+
+  const getOnePostandAuthor = { text: "SELECT p.id AS post_num, p.title, p.image_posts, p.descriptionShort, p.descriptionLong, p.date, p.rating, p.video, a.name AS author, a.image_authors, a.email, a.description FROM posts p JOIN authors a ON p.author = a.id WHERE a.id = $1" , values: [id]};
+
+ client.query(getOnePostandAuthor).then((data) => res.json(data.rows)).catch((error) =>
+ res.sendStatus(500));
+ 
 });
+
 
 
 const authorsRouter=require('./authorsRouter.js');
