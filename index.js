@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-
+const cors=require('cors');
 const pg=require('pg');
 const app = express();
 const client = require("./database/client");
@@ -8,7 +8,7 @@ const client = require("./database/client");
 
 
 app.use(express.json());
-
+app.use(cors());
 
 
 
