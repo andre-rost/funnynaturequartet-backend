@@ -17,6 +17,20 @@ CREATE TABLE authors(
  email VARCHAR (100)  NOT NULL,
  description TEXT NOT NULL);
 
+CREATE TABLE tags(
+ id SERIAL PRIMARY KEY,
+ name VARCHAR (50) NOT NULL);
+
+
+ CREATE TABLE posts_tags(
+ post_id INT NOT NULL,
+ tag_id INT NOT NULL,
+ FOREIGN KEY (post_id) REFERENCES posts(id),
+ FOREIGN KEY (tag_id) REFERENCES tags(id),
+ PRIMARY KEY (post_id, tag_id) 
+ );
+
+
 /* Constraint relating posts and authors, the 2 tables are connected */
 
  ALTER TABLE posts 
@@ -25,10 +39,23 @@ CREATE TABLE authors(
 
 
 /* For dopping previous tables in elephantSQL */
- DROP TABLE IF EXISTS posts; DROP TABLE IF EXISTS authors
+ DROP TABLE IF EXISTS posts; DROP TABLE IF EXISTS authors; DROP TABLE IF EXISTS tags
 
 
- /* Injecting some authors and posts */
+
+
+ /* Injecting some authors, posts and tags */
+ INSERT INTO tags (name) VALUES
+('scary'),
+('cute'),
+('beautiful'),
+('ugly'),
+('toxic');
+
+/* UPDATE Tag entry in tag-table elephantSQL */
+UPDATE tags
+SET name='beautiful'
+WHERE name='beatiful'
 
  INSERT INTO authors (name, image_authors, email, description) VALUES
 ('Mike the lizzards-lover ','mike.jpg','mike@gmail.com', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.'),
@@ -149,3 +176,93 @@ Watch here - Scary ShoeBill',
 3.8,
 'https://www.youtube.com/embed/czloebyuINI')
 ;
+
+INSERT INTO posts_tags (post_id, tag_id) VALUES
+(1,1),
+(1,3),
+(1,2),
+(2,3),
+(2,1),
+(3,4),
+(4,4),
+(5,1),
+(5,3),
+(6,1),
+(7,2),
+(7,4),
+(8,3),
+(9,1),
+(9,4),
+(10,2),
+(11,3),
+(12,1),
+(12,2),
+(12,3),
+(13,1),
+(13,4),
+(14,1),
+(15,1),
+(16,4),
+(16,2),
+(17,2),
+(18,4),
+
+(1,5),
+(2,5),
+(2,2),
+(3,5),
+(4,2),
+(5,5),
+(5,2),
+(6,2),
+(7,5),
+(7,3),
+(8,5),
+(9,2),
+(9,5),
+(10,5),
+(11,2),
+(12,5),
+(13,2),
+(13,5),
+(14,2),
+(15,2),
+(16,5),
+(16,3),
+(17,3),
+(18,3);
+;
+
+
+/* Queries: for the TAGS */
+
+SELECT * from posts_tags pt
+JOIN tags t
+ON t.id=pt.tag_id
+JOIN posts p
+ON p.id=pt.post_id
+WHERE t.name = $1
+values: [tag],
+
+/* Queries: for the POSTS AND AUTHORS-->ALL POSTS WITH AUTHOR ATTACHED */
+SELECT p.id AS post_num, p.title, p.image_posts, p.descriptionShort, p.descriptionLong, p.date, p.rating, p.video, a.name AS author, a.image_authors, a.email, a.description FROM posts p JOIN authors a ON p.author = a.id WHERE p.id = $1, values: [id],
+
+
+/* Queries: for the POSTS AND AUTHORS-->ALL POSTS UNDER 1 AUTHOR */
+
+SELECT p.id AS post_num, p.title, p.image_posts, p.descriptionShort, p.descriptionLong, p.date, p.rating, p.video, a.name AS author, a.image_authors, a.email, a.description FROM posts p JOIN authors a ON p.author = a.id WHERE a.id = $1, values: [id],
+
+/* Same but with authors name--> Doesn´t matter from which table we start, we can have all. Important is to JOIN all tables needed */
+SELECT  p.id AS post_num, p.title, p.descriptionShort, p.descriptionLong, p.date, p.rating, t.name, a.name AS author FROM posts_tags pt JOIN tags t ON t.id=pt.tag_id JOIN posts p ON p.id=pt.post_id JOIN authors a ON p.author = a.id WHERE t.name = $1
+/* or */
+SELECT  p.id AS post_num, p.title, p.descriptionShort, p.descriptionLong, p.date, p.rating, t.name, a.name AS author FROM posts p JOIN posts_tags pt ON p.id=pt.post_id JOIN tags t ON t.id=pt.tag_id JOIN authors a ON p.author = a.id WHERE t.name = $1
+
+
+/* Query STRING SEARCH: for the POSTS that have some strings inside */
+SELECT * FROM posts
+ WHERE descriptionLong LIKE '%Argentina%' 
+OR descriptionShort LIKE '%Argentina%';
+
+   text: 
+    "SELECT * FROM posts p WHERE p.descriptionLong LIKE $1 OR descriptionShort LIKE $1  ",
+    values: ["%"+word+"%"],
